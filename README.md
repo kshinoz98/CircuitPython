@@ -1,6 +1,5 @@
-# CPyProjectTemplate
-Put a description for your project here!
-This repo is a template VS code project for CircuitPython projects that automatically uploads your code to the board when you press F5. Requires F5Anything extension.
+# Servo with Metro
+Using PWMio I connected an object to the 3 pin. What that means, I have no clue, but thats how it works. From there, it's fairly simple to just use the adafruit motor.
 ## Use
 ### Every new project:
 1. Make a GitHub account if you don't have one with your normal school credentials and sign into it.
