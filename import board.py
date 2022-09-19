@@ -9,7 +9,7 @@ dot=neopixel.NeoPixel(board.NEOPIXEL,1)
 dot.brightness=.1
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2) #Defining the pins for Ultrasonic Sensors
 son = 0                                                                 #Variable to define averaging (ish)
-print("starting")
+print("Starting")
 while True:
     try:
         if (son - sonar.distance) < 10 and (son - sonar.distance) > -10 :   #If the distance doesn't jump up or down 10
