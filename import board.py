@@ -1,26 +1,35 @@
-#[Lines 1-6] Importing neccesary libraries
-import board            #Communcating to Arduino
-import time             #So I can use sleep() function
-import math             #So that logic works
-import adafruit_hcsr04  #Communcating to Ultrasonic Sensor
-import simpleio         #So I can use map() function
-import neopixel         #Communicating to Neopixel
-dot=neopixel.NeoPixel(board.NEOPIXEL,1)
-dot.brightness=.1
-sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2) #Defining the pins for Ultrasonic Sensors
-son = 0                                                                 #Variable to define averaging (ish)
-print("Starting")
-while True:
-    try:
-        if (son - sonar.distance) < 10 and (son - sonar.distance) > -10 :   #If the distance doesn't jump up or down 10
-            if sonar.distance < 5:                                          #Defining bounds for shading in and out
-                dot.fill((255,0,0))
-            elif sonar.distance < 10 and sonar.distance > 5:                #Defining bounds for shading in and out
-                dot.fill((simpleio.map_range(sonar.distance,5,10,255,0),0,simpleio.map_range(sonar.distance,5,10,0,255)))
-            else:                                                           #Defining bounds for shading in and out
-                dot.fill((0,simpleio.map_range(sonar.distance,10,20,0,255),simpleio.map_range(sonar.distance,10,20,255,0)))
-        print((sonar.distance)) #For checking bugs
-        son=sonar.distance      #To find if the distance jumps
-        time.sleep(.001)        #Delay
-    except RuntimeError:
-        print("Retrying!")
+import board
+import math
+import time
+from lcd.lcd import LCD                                     #[4-14] code to connect 
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface   #input pins to board
+from digitalio import DigitalInOut, Direction, Pull
+i2c = board.I2C()
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+btn = DigitalInOut(board.D3)
+btn2 = DigitalInOut(board.D2)
+btn.direction = Direction.INPUT
+btn2.direction = Direction.INPUT
+btn.pull = Pull.UP
+btn2.pull = Pull.UP
+num = 0                         #Display Variable
+Redo = True                     #[16-17] Variables to 
+Redo2 = True                    # "debounce" button
+lcd.print("Starting")
+while True:                                     #[19-35] Code to add and subtract
+    if btn.value == True and Redo == True:      #from variable and "debounce" the 
+        num = num + 1                           #buttons.
+        lcd.clear()
+        lcd.print(str(num))
+        Redo = False
+        time.sleep(.1)
+    elif btn.value == False and Redo == False:
+        Redo = True
+    if btn2.value == True and Redo2 == True:
+        num = num - 1
+        lcd.clear()
+        lcd.print(str(num))
+        Redo2 = False
+        time.sleep(.1)
+    elif btn2.value == False and Redo2 == False:
+        Redo2 = True
