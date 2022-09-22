@@ -13,12 +13,12 @@ btn2.direction = Direction.INPUT
 btn.pull = Pull.UP
 btn2.pull = Pull.UP
 num = 0                         #Display Variable
-Redo = True                     #[16-17] Variables to                    # "debounce" button
-lcd.print("Starting")
+Redo = True                     #[16-17] Variable to "debounce" button
 
-while True:                                  #[19-35] Code to add and subtract #from variable and "debounce" the  #buttons.
-    if btn.value == True and Redo == True:
-        if btn2.value == True:                       
+lcd.print("Starting")
+while True:                                 #[19-30] Code to add and subtract 
+    if btn.value == True and Redo == True:  #from variable and 
+        if btn2.value == True:              #"debounce" the  #buttons.         
             num = num - 1
         else:
             num = num + 1                                   
