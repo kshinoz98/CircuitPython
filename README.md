@@ -90,7 +90,7 @@ Code goes here
 
 ### Wiring
 
-
+![gif](https://raw.githubusercontent.com/kshinoz98/CircuitPython/b45fed4ddee888d03481fca24c670a8d5ac0b01c/Screenshot%202022-09-27%20144318.png)
 
 ### Reflection
 
