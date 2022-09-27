@@ -62,6 +62,8 @@ while True:
 
 ### Wiring
 
+![.](https://raw.githubusercontent.com/kshinoz98/CircuitPython/725a86c43db42947b8fe5906c50fbef6e67ec979/Screenshot%202022-09-27%20154842.png)
+
 ### Reflection
 
 Using PWMio I connected an object to the 3 pin. What that means, I have no clue, but thats how it works. From there, it's fairly simple to just use the adafruit motor library. Using .Servo() I moved it back and forth. If I could do this assignment again, I probably would have just googled it a lot earlier and then I wouldn't have spent so much time trying to figure out the code.
