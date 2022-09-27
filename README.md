@@ -9,47 +9,40 @@
 ## Hello_CircuitPython
 
 ### Description & Code
-Description goes here
 
-Here's how you make code look like code:
+In this assignment, we started doing code with circuit python. We just needed to make the onboard neopixel red.
 
 ```python
-Code goes here
+import board
+import neopixel
+import time 
+import math
 
+Kaz = neopixel.NeoPixel(board.NEOPIXEL, 1)
+Kaz.brightness = 0.1 
+print("Make it red!")
+while True:
+    Kaz.fill((255,0,0))
 ```
 
 
 ### Evidence
 
-
-![spinningMetro_Optimized](https://user-images.githubusercontent.com/54641488/192549584-18285130-2e3b-4631-8005-0792c2942f73.gif)
-
-
-And here is how you should give image credit to someone, if you use their work:
-
-Image credit goes to [Rick A](https://www.youtube.com/watch?v=dQw4w9WgXcQ&scrlybrkr=8931d0bc)
-
-
-
-### Wiring
-Make an account with your google ID at [tinkercad.com](https://www.tinkercad.com/learn/circuits), and use "TinkerCad Circuits to make a wiring diagram."  It's really easy!  
-Then post an image here.   [here's a quick tutorial for all markdown code, like making links](https://guides.github.com/features/mastering-markdown/)
+![Spinning](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2027,%202022%203_18%20PM.gif?raw=true)
 
 ### Reflection
 What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience?  Your ultimate goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person.
-
-
-
 
 ## CircuitPython_Servo
 
 ### Description & Code
 
+Using circuitpython, connect to a servo and rotate it 180 degrees and back
+
 Using circuitpython libraries, connect to a servo and make it move
 
 ```python
 Code goes here
-
 ```
 
 ### Evidence
