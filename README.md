@@ -6,11 +6,6 @@ Using a few different libraries I connected to the ultrasonic sensor, and manage
 
 ![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true) ![png](https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png)
 
-# Counting LCD
-Using some libraries, I connected the LCD screen and the buttons (Which was much harder than I expected). For the first button I had to "debounce" the counting button, and then the second button was a single if statement to tell it to count up or down. I feel like I had a pretty good grasp of this asssignment, as I had done one that was just like it in engineering 2, however I did get stuck on something for 30 mins when I only had to add .value. If I had to do this assignment again, I would have actually read the directions so I wouldn't have to redo the code because it did the wrong thing.
-
-![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true)
-
 ## Table of Contents
 * [Table of Contents](#TableOfContents)
 * [Hello_CircuitPython](#Hello_CircuitPython)
@@ -125,6 +120,52 @@ while True:                                 #[19-30] Code to add and subtract
 
 Using some libraries, I connected the LCD screen and the buttons (Which was much harder than I expected). For the first button I had to "debounce" the counting button, and then the second button was a single if statement to tell it to count up or down. I feel like I had a pretty good grasp of this asssignment, as I had done one that was just like it in engineering 2, however I did get stuck on something for 30 mins when I only had to add .value. If I had to do this assignment again, I would have actually read the directions so I wouldn't have to redo the code because it did the wrong thing.
 
+## RGB Led with Ultrasonic Sensor
+
+### Description & Code
+
+```python
+#[Lines 1-6] Importing neccesary libraries
+import board            #Communcating to Arduino
+import time             #So I can use sleep() function
+import math             #So that logic works
+import adafruit_hcsr04  #Communcating to Ultrasonic Sensor
+import simpleio         #So I can use map() function
+import neopixel         #Communicating to Neopixel
+dot=neopixel.NeoPixel(board.NEOPIXEL,1)
+dot.brightness=.1
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2) #Defining the pins for Ultrasonic Sensors
+son = 0                                                                 #Variable to define averaging (ish)
+print("Starting")
+while True:
+    try:
+        if (son - sonar.distance) < 10 and (son - sonar.distance) > -10 :   #If the distance doesn't jump up or down 10
+            if sonar.distance < 5:                                          #Defining bounds for shading in and out
+                dot.fill((255,0,0))
+            elif sonar.distance < 10 and sonar.distance > 5:                #Defining bounds for shading in and out
+                dot.fill((simpleio.map_range(sonar.distance,5,10,255,0),0,simpleio.map_range(sonar.distance,5,10,0,255)))
+            else:                                                           #Defining bounds for shading in and out
+                dot.fill((0,simpleio.map_range(sonar.distance,10,20,0,255),simpleio.map_range(sonar.distance,10,20,255,0)))
+        print((sonar.distance)) #For checking bugs
+        son=sonar.distance      #To find if the distance jumps
+        time.sleep(.001)        #Delay
+    except RuntimeError:
+        print("Retrying!")
+
+```
+
+### Evidence
+
+![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true) ![png]
+
+### Wiring
+
+(https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png)
+
+### Reflection
+
+Using a few different libraries I connected to the ultrasonic sensor, and managed to get a running distance. However, that was only the easiest part. Finding the right bounds and ways to shade from red to blue and blue to green took quite a while, as there are a lot of way which have varying levels of workingness. However, the way that I finally went with seemed to have work the best. By defining ranges, I made the light shade correctly.
+
 ## NextAssignment
 
 ### Description & Code
@@ -139,3 +180,4 @@ Code goes here
 ### Wiring
 
 ### Reflection
+
