@@ -156,11 +156,11 @@ while True:
 
 ### Evidence
 
-![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true) ![png]
+![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true) 
 
 ### Wiring
 
-(https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png)
+![png](https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png)
 
 ### Reflection
 
