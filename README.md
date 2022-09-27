@@ -39,10 +39,21 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 
 Using circuitpython, connect to a servo and rotate it 180 degrees and back
 
-Using circuitpython libraries, connect to a servo and make it move
-
 ```python
-Code goes here
+import board
+import time 
+import math
+import pwmio 
+from adafruit_motor import servo 
+
+pwm = pwmio.PWMOut(board.D3, duty_cycle=2 **15, frequency=50)
+myServo = servo.Servo(pwm)
+
+while True:
+    myServo.angle = 90 
+    time.sleep(1)
+    myServo.angle = 0
+    time.sleep(1)
 ```
 
 ### Evidence
