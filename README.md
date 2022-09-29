@@ -37,7 +37,7 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 
 ### Description & Code
 
-Using circuitpython, connect to a servo and rotate it 180 degrees and back
+Using circuitpython, connect to a servo and rotate it 180 degrees and back using buttons
 
 ```python
 import board
@@ -58,7 +58,7 @@ while True:
 
 ### Evidence
 
-
+![,,](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2029,%202022%203_40%20PM.gif?raw=true)
 
 ### Wiring
 
