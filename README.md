@@ -37,32 +37,45 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 
 ### Description & Code
 
-Using circuitpython, connect to a servo and rotate it 180 degrees and back
+Using circuitpython, connect to a servo and rotate it 180 degrees and back using buttons
 
 ```python
-import board
-import time 
+import board                       #[1-16] Setup for Buttons                 
+import time                        #And servo
 import math
 import pwmio 
-from adafruit_motor import servo 
+from adafruit_motor import servo
+from digitalio import DigitalInOut, Direction, Pull
+btn = DigitalInOut(board.D3)
+btn2 = DigitalInOut(board.D2)
+btn.direction = Direction.INPUT
+btn2.direction = Direction.INPUT
+btn.pull = Pull.UP
+btn2.pull = Pull.UP
 
-pwm = pwmio.PWMOut(board.D3, duty_cycle=2 **15, frequency=50)
+pwm = pwmio.PWMOut(board.D5, duty_cycle=2 **15, frequency=50)
 myServo = servo.Servo(pwm)
 
-while True:
-    myServo.angle = 90 
-    time.sleep(1)
-    myServo.angle = 0
-    time.sleep(1)
+print("starting") 
+while True:                 #[17-27]If a button is pressed
+    print("re")             #Rotate to either 180 or 0
+    if btn.value == True:
+        myServo.angle = 180
+        time.sleep(1)
+        print("Right")
+    elif btn2.value == True :
+        myServo.angle = 0
+        time.sleep(1)
+        print("Left")
 ```
 
 ### Evidence
 
-
+![,,](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2029,%202022%203_40%20PM.gif?raw=true)
 
 ### Wiring
 
-![.](https://raw.githubusercontent.com/kshinoz98/CircuitPython/725a86c43db42947b8fe5906c50fbef6e67ec979/Screenshot%202022-09-27%20154842.png)
+![.](https://github.com/kshinoz98/CircuitPython/blob/master/Screen%20of%20servo%20wiring.png?raw=true)
 
 ### Reflection
 
