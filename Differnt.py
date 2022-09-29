@@ -1,5 +1,5 @@
-import board
-import time 
+import board                       #[1-16] Setup for Buttons                 
+import time                        #And servo
 import math
 import pwmio 
 from adafruit_motor import servo
@@ -14,9 +14,9 @@ btn2.pull = Pull.UP
 pwm = pwmio.PWMOut(board.D5, duty_cycle=2 **15, frequency=50)
 myServo = servo.Servo(pwm)
 
-print("starting")
-while True:
-    print("re")
+print("starting") 
+while True:                 #[17-27]If a button is pressed
+    print("re")             #Rotate to either 180 or 0
     if btn.value == True:
         myServo.angle = 180
         time.sleep(1)
