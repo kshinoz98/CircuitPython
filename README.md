@@ -1,5 +1,4 @@
 ## Table of Contents
-* [Table of Contents](#TableOfContents)
 * [Hello_CircuitPython](#Hello_CircuitPython)
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
@@ -31,7 +30,7 @@ while True:
 ![Spinning](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2027,%202022%203_18%20PM.gif?raw=true)
 
 ### Reflection
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience?  Your ultimate goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person.
+Connecting to the Arduino actually took an incredible amount of time. I learned a lot about what it takes to actually connect a board up, and even just getting that little light to turn red was a big victory. Also, in this time, I realized that circuitpython is a lot similar to C++ but with more adaptability for libraries. If I did this assignment again I would cheat off other people a lot earlier, because I spent a while just flondering while the people next to me actually knew what to do.
 
 ## CircuitPython_Servo
 
