@@ -175,19 +175,3 @@ while True:
 ### Reflection
 
 Using a few different libraries I connected to the ultrasonic sensor, and managed to get a running distance. However, that was only the easiest part. Finding the right bounds and ways to shade from red to blue and blue to green took quite a while, as there are a lot of way which have varying levels of workingness. However, the way that I finally went with seemed to have work the best. By defining ranges, I made the light shade correctly. If I did this assignment again, I would takes Graham's advice and learn how to use elif and else
-
-## NextAssignment
-
-### Description & Code
-
-```python
-Code goes here
-
-```
-
-### Evidence
-
-### Wiring
-
-### Reflection
-
