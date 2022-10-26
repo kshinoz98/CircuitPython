@@ -9,7 +9,7 @@
 
 ### Description & Code
 
-In this assignment, we started doing code with circuit python. We just needed to make the onboard neopixel red.
+In this assignment, we just started doing code with circuit python, and our assignment was to make the onboard neopixel red. The main focus of the assignment was to learn how to connect a board and getting familiar with the syntax of CircuitPython.
 
 ```python
 import board
@@ -17,11 +17,11 @@ import neopixel
 import time 
 import math
 
-Kaz = neopixel.NeoPixel(board.NEOPIXEL, 1)
-Kaz.brightness = 0.1 
+Dot = neopixel.NeoPixel(board.NEOPIXEL, 1)
+Dot.brightness = 0.1 
 print("Make it red!")
 while True:
-    Kaz.fill((255,0,0))
+    Dot.fill((255,0,0))
 ```
 
 
@@ -30,7 +30,7 @@ while True:
 ![Spinning](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2027,%202022%203_18%20PM.gif?raw=true)
 
 ### Reflection
-Connecting to the Arduino actually took an incredible amount of time. I learned a lot about what it takes to actually connect a board up, and even just getting that little light to turn red was a big victory. Also, in this time, I realized that circuitpython is a lot similar to C++ but with more adaptability for libraries. If I did this assignment again I would cheat off other people a lot earlier, because I spent a while just flondering while the people next to me actually knew what to do.
+Connecting to the Arduino actually took an incredible amount of time. Because the libraries were not built in, getting them in or replacing the libraries was very complicated. I learned a lot about what it takes to actually connect a board up, and even just getting that little light to turn red was a big victory. Also, in this time, I realized that circuitpython is a lot similar to C++ but with more adaptability for libraries. If I did this assignment again I would cheat off other people a lot earlier, because I spent a while just flondering while the people next to me actually knew what to do.
 
 ## CircuitPython_Servo
 
@@ -68,13 +68,9 @@ while True:                 #[17-27]If a button is pressed
         print("Left")
 ```
 
-### Evidence
-
-![,,](https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2029,%202022%203_40%20PM.gif?raw=true)
-
-### Wiring
-
-![.](https://github.com/kshinoz98/CircuitPython/blob/master/Screen%20of%20servo%20wiring.png?raw=true)
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://github.com/kshinoz98/CircuitPython/blob/master/Untitled_%20Sep%2029,%202022%203_40%20PM.gif?raw=true" alt="The Base" height="300">  |  <img src="https://github.com/kshinoz98/CircuitPython/blob/master/Screen%20of%20servo%20wiring.png?raw=true" alt="The Base" height="300">
 
 ### Reflection
 
@@ -117,14 +113,9 @@ while True:                                 #[19-30] Code to add and subtract
         Redo = True
 
 ```
-
-### Evidence
-
-![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true)
-
-### Wiring
-
-![gif](https://raw.githubusercontent.com/kshinoz98/CircuitPython/b45fed4ddee888d03481fca24c670a8d5ac0b01c/Screenshot%202022-09-27%20144318.png)
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/b45fed4ddee888d03481fca24c670a8d5ac0b01c/Screenshot%202022-09-27%20144318.png" alt="The Base" height="400">
 
 ### Reflection
 
@@ -163,14 +154,9 @@ while True:
         print("Retrying!")
 
 ```
-
-### Evidence
-
-![gif](https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true) 
-
-### Wiring
-
-![png](https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png)
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png" alt="The Base" height="400">
 
 ### Reflection
 
