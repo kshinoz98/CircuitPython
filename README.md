@@ -2,6 +2,7 @@
 * [Hello_CircuitPython](#Hello_CircuitPython)
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
+* [Motor Control](#Motor_Control)
 ---
 
 ## Hello_CircuitPython
@@ -148,6 +149,12 @@ Evidence              | Wiring
 
 ### Reflection
 
-Using a few different libraries I connected to the ultrasonic sensor, and managed to get a running distance. However, that was only the easiest part. Finding the right bounds and ways to shade from red to blue and blue to green took quite a while, as there are a lot of way which have varying levels of workingness. However, the way that I finally went with seemed to have work the best. By defining ranges, I made the light shade correctly. If I did this assignment again, I would takes Graham's advice and learn how to use elif and else
+In this assignment, I actually learned a lot. More than just how to wire a DC motor or use a battery pack, but a few things about workflow:
+
+- **Give up.** Don't just keep trying at something you can't do, however, ask and you will recieve
+- In wiring, it is the best thing to go through where the current will flow, thinking out if the wiring will do what is intended
+- In code, it is the best thing to immediately google your assgnment, and only start coding once you have gotten a hold on the material.
+
+Overall, this assignment was really annoying for me, as I don't enjoy the finicky nature of either code or wiring, and multiple times I just was missing one detail that made my entire thing not work. If I did this assignment again, I would review my notebook from last year to look for tips in wiring.
 
 
