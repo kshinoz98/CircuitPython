@@ -145,7 +145,7 @@ while True:
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://github.com/kshinoz98/CircuitPython/blob/d20d813b4dadc8ccec0c083e8bce710b5941454e/Untitled_%20Nov%202,%202022%2012_49%20PM.gif?raw=true" alt="The Base" height="400">  |  <img src="https://github.com/lwhitmo/CircuitPython/raw/master/Images/Screenshot%202022-11-01%20115847.png" alt="The Base" height="400">
+<img src="https://github.com/kshinoz98/CircuitPython/blob/d20d813b4dadc8ccec0c083e8bce710b5941454e/Untitled_%20Nov%202,%202022%2012_49%20PM.gif?raw=true" alt="The Base" height="200">  |  <img src="https://github.com/lwhitmo/CircuitPython/raw/master/Images/Screenshot%202022-11-01%20115847.png" alt="The Base" height="400"> Credit for image goes to [Lucia Whitmore](https://github.com/lwhitmo/CircuitPython)
 
 ### Reflection
 
