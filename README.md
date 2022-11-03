@@ -115,7 +115,7 @@ while True:                                 #[19-30] Code to add and subtract
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/b45fed4ddee888d03481fca24c670a8d5ac0b01c/Screenshot%202022-09-27%20144318.png" alt="The Base" height="400">
+<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/199816756-320b356f-50dc-4665-8adc-c88c1b4b7e8a.png" alt="The Base" height="400">
 
 ### Reflection
 
@@ -144,8 +144,7 @@ while True:
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://github.com/kshinoz98/CircuitPython/blob/d20d813b4dadc8ccec0c083e8bce710b5941454e/Untitled_%20Nov%202,%202022%2012_49%20PM.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png" alt="The Base" height="400">
-
+<img src="https://github.com/kshinoz98/CircuitPython/blob/d20d813b4dadc8ccec0c083e8bce710b5941454e/Untitled_%20Nov%202,%202022%2012_49%20PM.gif?raw=true" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/199816609-97197a27-0c43-4816-a0a1-7d8257e2447a.pnG" alt="The Base" height="400">
 
 ### Reflection
 
