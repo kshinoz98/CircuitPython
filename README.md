@@ -2,6 +2,7 @@
 * [Hello_CircuitPython](#Hello_CircuitPython)
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
+* [Motor Control](#Motor_Control)
 ---
 
 ## Hello_CircuitPython
@@ -115,49 +116,45 @@ while True:                                 #[19-30] Code to add and subtract
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/b45fed4ddee888d03481fca24c670a8d5ac0b01c/Screenshot%202022-09-27%20144318.png" alt="The Base" height="400">
+<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgif-2.gif?raw=true" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/199816756-320b356f-50dc-4665-8adc-c88c1b4b7e8a.png" alt="The Base" height="400">
 
 ### Reflection
 
 Using some libraries, I connected the LCD screen and the buttons (Which was much harder than I expected). For the first button I had to "debounce" the counting button, and then the second button was a single if statement to tell it to count up or down. I feel like I had a pretty good grasp of this asssignment, as I had done one that was just like it in engineering 2, however I did get stuck on something for 30 mins when I only had to add .value. If I had to do this assignment again, I would have actually read the directions so I wouldn't have to redo the entire code because I did the wrong thing.
 
-## RGB Led with Ultrasonic Sensor
+## Motor Control
 
 ### Description & Code
 
+Using a transistor and an external battery pack, control a DC motor. The learning target of this assignment was to learn how to use a transitor as well as relearning how to create analog outputs in the neww coding language.
+
 ```python
-#[Lines 1-6] Importing neccesary libraries
-import board            #Communcating to Arduino
-import time             #So I can use sleep() function
-import math             #So that logic works
-import adafruit_hcsr04  #Communcating to Ultrasonic Sensor
-import simpleio         #So I can use map() function
-import neopixel         #Communicating to Neopixel
-dot=neopixel.NeoPixel(board.NEOPIXEL,1)
-dot.brightness=.1
-sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D2) #Defining the pins for Ultrasonic Sensors
-son = 0                                                                 #Variable to define averaging (ish)
-print("Starting")
+import board               #[lines 1-4] Importing neccesary libraries
+import time
+from analogio import AnalogOut, AnalogIn
+import simpleio
+
+motor = AnalogOut(board.A1) #[lines 5 & 6] Definining the motor and potentiometer
+pot = AnalogIn(board.A0)
+
 while True:
-    try:
-        if (son - sonar.distance) < 10 and (son - sonar.distance) > -10 :   #If the distance doesn't jump up or down 10
-            if sonar.distance < 5:                                          #Defining bounds for shading in and out
-                dot.fill((255,0,0))
-            elif sonar.distance < 10 and sonar.distance > 5:                #Defining bounds for shading in and out
-                dot.fill((simpleio.map_range(sonar.distance,5,10,255,0),0,simpleio.map_range(sonar.distance,5,10,0,255)))
-            else:                                                           #Defining bounds for shading in and out
-                dot.fill((0,simpleio.map_range(sonar.distance,10,20,0,255),simpleio.map_range(sonar.distance,10,20,255,0)))
-        print((sonar.distance)) #For checking bugs
-        son=sonar.distance      #To find if the distance jumps
-        time.sleep(.001)        #Delay
-    except RuntimeError:
-        print("Retrying!")
+    print(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Print mapped potentiometer value to motor inputs
+    motor.value = int(simpleio.map_range(pot.value, 96, 65520, 0, 65535)) #Write the mapped value to motor
+    time.sleep(.1)                                                      #So that the serial monitor works
 
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://github.com/kshinoz98/CircuitPython/blob/master/ezgifgif.gif?raw=true" alt="The Base" height="400">  |  <img src="https://raw.githubusercontent.com/kshinoz98/CircuitPython/f4be6df7eb8828500e94754d2ccb5b5c8cd2b276/Screenshot%202022-09-19%20154243.png" alt="The Base" height="400">
+<img src="https://github.com/kshinoz98/CircuitPython/blob/d20d813b4dadc8ccec0c083e8bce710b5941454e/Untitled_%20Nov%202,%202022%2012_49%20PM.gif?raw=true" alt="The Base" height="200">  |  <img src="https://github.com/lwhitmo/CircuitPython/raw/master/Images/Screenshot%202022-11-01%20115847.png" alt="The Base" height="400"> Credit for image goes to [Lucia Whitmore](https://github.com/lwhitmo/CircuitPython)
 
 ### Reflection
 
-Using a few different libraries I connected to the ultrasonic sensor, and managed to get a running distance. However, that was only the easiest part. Finding the right bounds and ways to shade from red to blue and blue to green took quite a while, as there are a lot of way which have varying levels of workingness. However, the way that I finally went with seemed to have work the best. By defining ranges, I made the light shade correctly. If I did this assignment again, I would takes Graham's advice and learn how to use elif and else
+In this assignment, I actually learned a lot. More than just how to wire a DC motor or use a battery pack, but a few things about workflow:
+
+- **Give up.** Don't just keep trying at something you can't do, however, ask and you will recieve
+- In wiring, it is the best thing to go through where the current will flow, thinking out if the wiring will do what is intended
+- In code, it is the best thing to immediately google your assgnment, and only start coding once you have gotten a hold on the material.
+
+Overall, this assignment was really annoying for me, as I don't enjoy the finicky nature of either code or wiring, and multiple times I just was missing one detail that made my entire thing not work. If I did this assignment again, I would review my notebook from last year to look for tips in wiring.
+
+
