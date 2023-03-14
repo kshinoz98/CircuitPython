@@ -157,4 +157,63 @@ In this assignment, I actually learned a lot. More than just how to wire a DC mo
 
 Overall, this assignment was really annoying for me, as I don't enjoy the finicky nature of either code or wiring, and multiple times I just was missing one detail that made my entire thing not work. If I did this assignment again, I would review my notebook from last year to look for tips in wiring.
 
+## Temperature Sensor with LCD screen
+
+### Description & Code
+
+Using a LCD and Temperature sensor, display a message based on the temperature of the room.
+
+```python
+import board   #[Lines 1-8] Importing all Neccessary libraries to communicate with LCD
+import time
+from lcd.lcd import LCD
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
+from digitalio import DigitalInOut, Direction, Pull
+import board
+import analogio
+
+
+# get and i2c object
+i2c = board.I2C()
+tmp36 = analogio.AnalogIn(board.A0)
+# some LCDs are 0x3f... some are 0x27.
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+def tmp36_temperature_C(analogin):              #Convert millivolts to temperature
+    millivolts = analogin.value * (analogin.reference_voltage * 1000 / 65535)
+    return (millivolts - 500) / 10
+
+
+while True:
+    # Read the temperature in Celsius.
+    temp_C = tmp36_temperature_C(tmp36)   
+    # Convert to Fahrenheit.
+    temp_F = (temp_C * 9/5) + 32
+    # Print out the value and delay a second before looping again.
+    lcd.set_cursor_pos(0, 0)           #[Lines 26-36] Print different messages based on the temperature
+    if temp_F > 75:
+        lcd.print("it's too hot!")
+    elif temp_F < 70:
+        lcd.print("it's too cold")
+    else:
+        lcd.print("It's just right")
+    lcd.set_cursor_pos(1, 0)
+    lcd.print("Temp: {}F".format(temp_F))
+    time.sleep(.5)
+```
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/113209502/225108458-8a0a7a90-a50d-4a12-a844-217484690940.gif" alt="The Base" height="200">  |  <img src="https://github.com/lwhitmo/CircuitPython/raw/master/Images/Screenshot%202022-11-01%20115847.png" alt="The Base" height="400"> Credit for image goes to [Lucia Whitmore](https://github.com/lwhitmo/CircuitPython)
+
+
+
+
+### Reflection
+
+In this assignment, I actually learned a lot. More than just how to wire a DC motor or use a battery pack, but a few things about workflow:
+
+- **Give up.** Don't just keep trying at something you can't do, however, ask and you will recieve
+- In wiring, it is the best thing to go through where the current will flow, thinking out if the wiring will do what is intended
+- In code, it is the best thing to immediately google your assgnment, and only start coding once you have gotten a hold on the material.
+
+Overall, this assignment was really annoying for me, as I don't enjoy the finicky nature of either code or wiring, and multiple times I just was missing one detail that made my entire thing not work. If I did this assignment again, I would review my notebook from last year to look for tips in wiring.
 
