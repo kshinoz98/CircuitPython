@@ -202,18 +202,12 @@ while True:
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/113209502/225108458-8a0a7a90-a50d-4a12-a844-217484690940.gif" alt="The Base" height="200">  |  <img src="https://github.com/lwhitmo/CircuitPython/raw/master/Images/Screenshot%202022-11-01%20115847.png" alt="The Base" height="400"> Credit for image goes to [Lucia Whitmore](https://github.com/lwhitmo/CircuitPython)
+<img src="https://user-images.githubusercontent.com/113209502/225108458-8a0a7a90-a50d-4a12-a844-217484690940.gif" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/225109751-b346b62a-61f5-4195-9fa2-613806eea313.png" alt="The Base" height="300"> Credit for image goes to [Graham Gilbert-Scroder](https://github.com/VeganPorkChop)
 
 
 
 
 ### Reflection
 
-In this assignment, I actually learned a lot. More than just how to wire a DC motor or use a battery pack, but a few things about workflow:
-
-- **Give up.** Don't just keep trying at something you can't do, however, ask and you will recieve
-- In wiring, it is the best thing to go through where the current will flow, thinking out if the wiring will do what is intended
-- In code, it is the best thing to immediately google your assgnment, and only start coding once you have gotten a hold on the material.
-
-Overall, this assignment was really annoying for me, as I don't enjoy the finicky nature of either code or wiring, and multiple times I just was missing one detail that made my entire thing not work. If I did this assignment again, I would review my notebook from last year to look for tips in wiring.
+This assignment was not that interesting, honestly. It was simply a regurgitation of previous assignments, and even the temperature sensor, which I thought would be interesting was just an analogRead.
 
