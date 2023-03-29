@@ -211,3 +211,93 @@ Evidence              | Wiring
 
 This assignment was not that interesting, honestly. It was simply a regurgitation of previous assignments, and even the temperature sensor, which I thought would be interesting was just an analogRead.
 
+
+## Rotary Encoder with LCD screen
+
+### Description & Code
+
+Using a LCD and three lights, create a working stoplight menu that changes the lights when pressed.
+
+```python
+
+# Rotary Encodare light thingksf;ja             # [lines 1-7] Import and set up neccesary libraries
+import time
+import rotaryio
+import board
+from lcd.lcd import LCD
+from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
+from digitalio import DigitalInOut, Direction, Pull
+
+
+encoder = rotaryio.IncrementalEncoder(board.D3, board.D2) # [lines 9-24] Start all Variables and define INs and OUTs
+last_position = 0
+btn = DigitalInOut(board.D1)
+btn.direction = Direction.INPUT
+btn.pull = Pull.UP
+state = 0
+Buttonyep = 1
+
+
+i2c = board.I2C()
+lcd = LCD(I2CPCF8574Interface(i2c, 0x3f), num_rows=2, num_cols=16)
+
+
+ledGreen = DigitalInOut(board.D8)
+ledYellow = DigitalInOut(board.D9)
+ledRed = DigitalInOut(board.D10)
+ledGreen.direction = Direction.OUTPUT
+ledYellow.direction = Direction.OUTPUT
+ledRed.direction = Direction.OUTPUT
+
+
+while True:                #[lines 27-38] Set up varible for encoder, limit it to >0 and <3
+    position = encoder.position
+    if position != last_position:
+        if position > last_position:
+            state = state + 1
+        elif position < last_position:
+            state = state - 1
+        if state > 2:
+            state = 2
+        if state < 0:
+            state = 0
+        print(state)
+        if state == 0:     #[lines 39-47] Print to LCD based on Encoder Var
+            lcd.set_cursor_pos(0, 0) # [39
+            lcd.print("GOOOOO")
+        elif state == 1:
+            lcd.set_cursor_pos(0, 0)
+            lcd.print("yellow")
+        elif state == 2:
+            lcd.set_cursor_pos(0, 0)
+            lcd.print("STOPPP")
+    if btn.value == 0 and Buttonyep == 1: #[lines 48-63] If the button is pressed make the Encoder Var match the lights.
+        print("buttion")
+        if state == 0: 
+                ledGreen.value = True
+                ledRed.value = False
+                ledYellow.value = False
+        elif state == 1:
+                ledYellow.value = True
+                ledRed.value = False
+                ledGreen.value = False
+        elif state == 2:
+                ledRed.value = True
+                ledGreen.value = False
+                ledYellow.value = False
+        Buttonyep = 0       #[lines 64-68] Resets and delay
+    if btn.value == 1:
+        time.sleep(.1)
+        Buttonyep = 1
+    last_position = position
+
+```
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/113209502/225108458-8a0a7a90-a50d-4a12-a844-217484690940.gif" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/228639331-aa74f849-39bf-4e99-8e0b-4762a2af04ab.png" alt="The Base" height="300"> Credit for image goes to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/)
+
+
+
+### Reflection
+
+This assignment was more in depth, and I feel I learned something using rotary encoders. What exactly that was, I don't know, but I think that if I needed to use them in the future it would not be incredibly hard.
