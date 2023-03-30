@@ -294,7 +294,48 @@ while True:                #[lines 27-38] Set up varible for encoder, limit it t
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/113209502/225108458-8a0a7a90-a50d-4a12-a844-217484690940.gif" alt="The Base" height="400">  |  <img src="https://user-images.githubusercontent.com/113209502/228639331-aa74f849-39bf-4e99-8e0b-4762a2af04ab.png" alt="The Base" height="300"> Credit for image goes to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/)
+<img src="https://user-images.githubusercontent.com/113209502/228982901-aaf4f073-8b5b-422e-9e9d-67f1d52fbfbd.gif" alt="The Base" height="200">  |  <img src="https://user-images.githubusercontent.com/113209502/228639331-aa74f849-39bf-4e99-8e0b-4762a2af04ab.png" alt="The Base" height="300"> Credit for image goes to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/)
+
+
+
+### Reflection
+
+This assignment was more in depth, and I feel I learned something using rotary encoders. What exactly that was, I don't know, but I think that if I needed to use them in the future it would not be incredibly hard.
+
+## Photointerrupter
+
+### Description & Code
+
+Using a LCD and three lights, create a working stoplight menu that changes the lights when pressed.
+
+```python
+
+import time            # [lines 1-3] Import necessary libraries
+import digitalio
+import board
+
+photoI = digitalio.DigitalInOut(board.D7)
+photoI.direction = digitalio.Direction.INPUT
+photoI.pull = digitalio.Pull.UP
+
+last_photoI = True
+last_update = -4
+
+photoICrosses = 0
+
+while True:
+    if time.monotonic()-last_update > 4:
+        print(f"The number of crosses is {photoICrosses}")
+        last_update = time.monotonic()
+    
+    if last_photoI != photoI.value and not photoI.value:
+        photoICrosses += 1
+    last_photoI = photoI.value
+
+```
+Evidence              | Wiring
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/113209502/228982901-aaf4f073-8b5b-422e-9e9d-67f1d52fbfbd.gif" alt="The Base" height="200">  |  <img src="https://user-images.githubusercontent.com/113209502/228639331-aa74f849-39bf-4e99-8e0b-4762a2af04ab.png" alt="The Base" height="300"> Credit for image goes to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/)
 
 
 
