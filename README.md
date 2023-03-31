@@ -3,6 +3,9 @@
 * [CircuitPython_Servo](#CircuitPython_Servo)
 * [CircuitPython_LCD](#CircuitPython_LCD)
 * [Motor Control](#Motor_Control)
+* [Temperature Sensor with LCD screen](#Temperature_Sensor_with_LCD_screen)
+* [Rotary Encoder with LCD screen](#Rotary_Encoder_with_LCD_screen)
+* [Photointerrupter](#Photointerrupter)
 ---
 
 ## Hello_CircuitPython
@@ -209,7 +212,7 @@ Evidence              | Wiring
 
 ### Reflection
 
-This assignment was not that interesting, honestly. It was simply a regurgitation of previous assignments, and even the temperature sensor, which I thought would be interesting was just an analogRead.
+This assignment was not that interesting, honestly. It was simply a regurgitation of previous assignments, and even the temperature sensor, which I thought would be interesting was just an analogRead. The one interesting thing was the cool formating that you can do on a LCD screen, like in this case using a {} to represent a changing variable. This made the LCD less blockish to work with and also made it look better.
 
 
 ## Rotary Encoder with LCD screen
@@ -300,13 +303,13 @@ Evidence              | Wiring
 
 ### Reflection
 
-This assignment was more in depth, and I feel I learned something using rotary encoders. What exactly that was, I don't know, but I think that if I needed to use them in the future it would not be incredibly hard.
+This assignment was more in depth, and I feel I learned something using rotary encoders. What exactly that was, I don't know, but I think that if I needed to use them in the future it would not be incredibly hard. Also, there was a problem with the I2c LCDs that hung me up for about a week. The metro wouldn't connect if I plugged it in with the LCD, so I needed to disconnect it and reconnect without the LCD.
 
 ## Photointerrupter
 
 ### Description & Code
 
-Using a LCD and three lights, create a working stoplight menu that changes the lights when pressed.
+Using a Photointerrupter and time.monotonic(), count how many times a photointerrupter has been triggered.
 
 ```python
 
@@ -335,10 +338,10 @@ while True:
 ```
 Evidence              | Wiring
 :-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/113209502/228982901-aaf4f073-8b5b-422e-9e9d-67f1d52fbfbd.gif" alt="The Base" height="200">  |  <img src="https://user-images.githubusercontent.com/113209502/228639331-aa74f849-39bf-4e99-8e0b-4762a2af04ab.png" alt="The Base" height="300"> Credit for image goes to [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/)
-
+<img src="https://user-images.githubusercontent.com/113209502/228987073-59f85d3d-8b91-4b2d-8d27-e4a81ca31c1d.gif" alt="The Base" height="200">  |  <img src="https://user-images.githubusercontent.com/113209502/228987344-dd383720-5446-4b16-a9be-77192f641012.png" alt="The Base" height="300"> 
+Credit for Wiring and Video goes to [Graham Gilbert Scoeder](https://github.com/VeganPorkChop/Engineering-3-Documentation/tree/master/IntermediateCoding-Engineering%203)
 
 
 ### Reflection
 
-This assignment was more in depth, and I feel I learned something using rotary encoders. What exactly that was, I don't know, but I think that if I needed to use them in the future it would not be incredibly hard.
+This assignment was not hard, because  I stole the code from [River Lewis](https://rivques.github.io/high-school-engineering/eng-3-code-notebook/) and the wiring was, to say it in a more complex than the wiring itself, so easy that a child could do it. time.monotonic was the hardest concept, but since River did it for me, I didn't need to worry about it at all. I would also like to add the fact that time.monotonic was entirely useless on this assignment, and that River used it like delay().
