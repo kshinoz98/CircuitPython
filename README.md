@@ -164,7 +164,7 @@ Overall, this assignment was really annoying for me, as I don't enjoy the finick
 
 ### Description & Code
 
-Using a LCD and Temperature sensor, display a message based on the temperature of the room.
+Using a LCD and Temperature sensor, display a message based on the temperature of the room. The learning target of this assignment was to learn how to use a Temperature sensor, and also deal with the problem of the LCD breaking the Metro.
 
 ```python
 import board   #[Lines 1-8] Importing all Neccessary libraries to communicate with LCD
@@ -219,7 +219,7 @@ This assignment was not that interesting, honestly. It was simply a regurgitatio
 
 ### Description & Code
 
-Using a LCD and three lights, create a working stoplight menu that changes the lights when pressed.
+Using a LCD and three lights, create a working stoplight menu that changes the lights when pressed. The learning target of this assignment was to learn how to use rotary encoders, and use a varible with different Cases.
 
 ```python
 
@@ -309,7 +309,7 @@ This assignment was more in depth, and I feel I learned something using rotary e
 
 ### Description & Code
 
-Using a Photointerrupter and time.monotonic(), count how many times a photointerrupter has been triggered.
+Using a Photointerrupter and time.monotonic(), count how many times a photointerrupter has been triggered. The learning target of this assignment was learn how to use time.monotonic() and relearn how to use a photointerrupter.
 
 ```python
 
